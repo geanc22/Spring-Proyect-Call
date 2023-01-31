@@ -1,0 +1,7 @@
+
+spring:
+  application:
+    name: apps-ilimitadas-servicio
+  cloud:
+    config:
+      uri: http://localhost:8888

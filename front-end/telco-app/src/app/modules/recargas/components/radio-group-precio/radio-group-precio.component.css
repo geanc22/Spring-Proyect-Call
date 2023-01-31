@@ -1,0 +1,30 @@
+.recargas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 1rem;
+}
+.recargas input[type="radio"] {
+  display: none;
+}
+.recargas label {
+  padding: 2.5rem;
+  color: #0074d9;
+  background-color: #fff;
+  border: 2px solid #b5dfff;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.recargas label:hover {
+  background-color: #0091ff1c;
+}
+.recargas input[type="radio"]:checked + label {
+  border: 2px solid var(--blue);
+}
+.vigencia{
+  position: relative;
+  display: block;
+  left: 0;
+  font-size: .7rem;
+}

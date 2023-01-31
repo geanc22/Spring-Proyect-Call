@@ -1,0 +1,19 @@
+<div *ngIf="modalSwitch == true">
+  <app-modal type="plan-internet" [precio]="precioSelected" [idProduct]="idProductSelected"></app-modal>
+</div>
+<div *ngIf="!planesInternet; else contenido">
+  <page-not-found [error]="error"></page-not-found>
+</div>
+<ng-template class="container" #contenido>
+  <h1 class="text-center">Plan de internet</h1>
+  <div class="py-5 d-flex gap-4 justify-content-evenly flex-wrap">
+    <app-card-planes
+      (priceEmiter)="precioSelected = $event"
+      (idProductEvent)="idProductSelected = $event"
+      (modalState)="modalSwitch = $event"
+      *ngFor="let plan of planesInternet"
+      [planInternet]="plan"
+      [boton]="true"
+    ></app-card-planes>
+  </div>
+</ng-template>

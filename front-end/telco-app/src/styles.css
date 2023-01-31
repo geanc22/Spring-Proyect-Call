@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+*{
+    --orange:#ff8000;
+    --orange_hover:#e67300;
+    --blue:#0091ff;
+    --blue_hover:#007be6;
+
+    --primary:var(--blue);
+    --primary_hover:var(--blue_hover);
+}

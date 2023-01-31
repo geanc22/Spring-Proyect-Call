@@ -1,0 +1,25 @@
+<div class="jsc-carousel" [ngStyle]="{'min-height':finalHeight}">
+  <div class="jsc-carousel__btns">
+    <span class="icon" (click)="setBack()">
+      <i class="fa-solid fa-circle-chevron-left" ></i>
+    </span>
+    <span class="icon" (click)="setNext()">
+      <i class="fa-solid fa-circle-chevron-right" ></i>
+    </span>
+  </div>
+  <div class="jsc-carousel__content ">
+    <ng-container *ngFor="let section of items;">
+      <div class="jsc-carousel__content-item" [ngStyle]="{'background-image':'url('+ section.image+')','margin-left':section.marginLeft+'%'}">
+        <h1>{{section.title?.first}} <span>{{section.title?.second}}</span></h1>
+        <p>{{section.subtitle}}</p>
+        <a [routerLink]="[section.link]" class="jsc-router_link">
+          <app-boton-generico label='Ver más'></app-boton-generico>
+        </a>
+      </div>
+    </ng-container>
+  </div>
+  <div class="jsc-carousel__steps">
+    <div class="jsc-carousel__steps-step jsc-carousel__steps-step-{{currentPosition === item.id ? 'active':''}}" *ngFor="let item of items" (click)="setCurrentPosition(item.id)">
+    </div>
+  </div>
+</div>

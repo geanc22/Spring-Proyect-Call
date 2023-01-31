@@ -1,0 +1,46 @@
+.precios,
+.formulario-wrap {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.formulario-wrap{
+  box-shadow: 0 0 10px #eee;
+
+  justify-content: center;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+form{
+  text-align: left;
+  width: 100%;
+}
+.info_basica{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+}
+
+.card-recarga{
+  box-shadow: 0 0 10px rgb(160, 255, 164);
+  border: 2px solid #02e30295;
+  border-radius: 10px;
+  width: 225px;
+  height: 225px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.card-recarga .icon{
+  color: #11aa11;
+  font-size: 5rem;
+}
+.card-recarga span{
+  color: #666;
+  font-weight: 600;
+  font-style: italic;
+}

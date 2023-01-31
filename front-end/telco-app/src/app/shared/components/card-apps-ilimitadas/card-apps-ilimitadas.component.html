@@ -1,0 +1,20 @@
+<div class="jsc-card" *ngIf="pack" style="--i:url({{ urlBase+'/uploads/img/'+pack.img }})">
+  <div class="jsc-card__content">
+    <div class="jsc-card__price">
+      <p>{{ pack.price | currency : "S/" }}</p>
+    </div>
+    <div class="jsc-card__title">
+      <h1>{{ pack.title | uppercase }}</h1>
+      <p>ilimitado x {{ pack.duration }} Días</p>
+    </div>
+    <app-boton-generico
+      *ngIf="boton"
+      (click)="emitirDatos(pack.price, pack.id || 0)"
+      (click)="openModal()"
+      label="comprar"
+    ></app-boton-generico>
+    <div class="jsc-card__description">
+      <p *ngFor="let app of pack.apps">{{ app.name | uppercase }}</p>
+    </div>
+  </div>
+</div>

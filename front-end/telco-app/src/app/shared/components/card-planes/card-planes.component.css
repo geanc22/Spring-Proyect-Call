@@ -1,0 +1,61 @@
+.jsc-card{
+    width: 350px;
+    box-shadow: 0 0 10px 3px #eee;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.jsc-card-price{
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem 0;
+    font-size: 2rem;
+    font-weight: 500;
+}
+.jsc-card-title{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--blue);
+    padding: .5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+}
+.jsc-card-title>span{
+    font-size: 12px;
+    font-weight: 600;
+    color: #eee;
+
+}
+.jsc-card-title>p{
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgb(255, 255, 255,.9);
+    margin: 0;
+    padding: 0;
+}
+.jsc-card-description{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+.jsc-card-description>span{
+    text-align: left;
+    max-width: 65%;
+    font-weight: 500;
+    margin-left: 2rem;
+}
+.jsc-card-description .value{
+    font-weight: normal;
+    margin-right: 2rem;
+}
+.jsc-card-footer{
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem;
+}
+app-boton-generico{
+    width: 150px;
+}

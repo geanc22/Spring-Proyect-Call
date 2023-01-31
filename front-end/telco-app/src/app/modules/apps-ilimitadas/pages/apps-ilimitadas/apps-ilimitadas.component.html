@@ -1,0 +1,19 @@
+<div *ngIf="modalSwitch == true">
+  <app-modal type="apps-ilimitadas" [precio]="precioSelected" [idProduct]="idProductSelected"></app-modal>
+</div>
+<div *ngIf="!paquetesApps else contenido">
+  <page-not-found [error]="error"></page-not-found>
+</div>
+<ng-template class="container" #contenido>
+  <h1 class="text-center">Apps ilimitadas</h1>
+  <div class="cards-redes my-5">
+    <app-card-apps-ilimitadas
+      (priceEvent)="precioSelected = $event"
+      (idProductEvent)="idProductSelected = $event"
+      (modalState)="modalSwitch = $event"
+      *ngFor="let pack of paquetesApps"
+      [pack]="pack"
+      [boton]="true"
+    ></app-card-apps-ilimitadas>
+  </div>
+</ng-template>

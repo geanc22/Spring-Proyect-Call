@@ -1,0 +1,42 @@
+.jsc-modal{
+    position: absolute;
+    background-color: rgba(0, 0, 0, .6);
+    width: 100%;
+    height: 100rem;
+    z-index: 1030;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+}
+.jsc-modal__content{
+    position: fixed;
+    background-color: #fff;
+    margin-top: 5rem;
+    min-width: 420px;
+    max-width: 800px;
+    width: 65%;
+    height: 20rem;
+    min-height: max-content;
+    padding: 5px;
+}
+.jsc-modal-close{
+    display: flex;
+    justify-content: flex-end;
+}
+.icon{
+    font-size: 2rem;
+}
+.jsc-modal_btn{
+    background-color: #fff;
+    border: none;
+    color: var(--orange);
+}
+.jsc-modal__body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+app-form-validation{
+    width: 100%;
+}

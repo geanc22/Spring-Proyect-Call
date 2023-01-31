@@ -1,0 +1,49 @@
+<form class="form" #infoForm="ngForm" (ngSubmit)="redirecTo(infoForm.value)">
+  <div class="form-row">
+    <input
+      type="number"
+      name="telf"
+      [ngClass]="[
+        telf.value ? 'entry' : '',
+        telf.touched && telf.invalid ? 'invalid' : 'valid'
+      ]"
+      #telf="ngModel"
+      ngModel
+      required
+      [pattern]="regexTelf"
+    />
+    <label class="jsc-input__lbl">
+      <span class="jsc-input__text">Número de telefono</span>
+    </label>
+  </div>
+  <div class="form-row">
+    <input
+      type="email"
+      name="email"
+      [ngClass]="[
+        email.value ? 'entry' : '',
+        email.invalid && email.touched ? 'invalid' : 'valid'
+      ]"
+      #email="ngModel"
+      ngModel
+      required
+      [pattern]="regexEmail"
+    />
+    <label class="jsc-input__lbl">
+      <span class="jsc-input__text">Correo electronico</span>
+    </label>
+  </div>
+  <div class="form-row">
+    <app-boton-generico
+      *ngIf="precio != undefined; else botonValidations"
+      label="Continuar"
+      [disabled]="infoForm.invalid"
+    ></app-boton-generico>
+    <ng-template #botonValidations>
+      <app-boton-generico
+        label="Continuar"
+        [disabled]="precio == undefined"
+      ></app-boton-generico>
+    </ng-template>
+  </div>
+</form>

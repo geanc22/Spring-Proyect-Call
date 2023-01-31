@@ -1,0 +1,97 @@
+.jsc-carousel {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.jsc-carousel::before{
+    content: '';
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.50);
+}
+.jsc-carousel__content{
+    text-align: center;
+    width: 100%;
+    align-self: stretch;
+    display: flex;
+    overflow: hidden;
+}
+.jsc-carousel__content-item{
+    float: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    transition: .85s all ease-in;
+    gap: 10px;
+}
+.jsc-carousel__content-item h1{
+    color: white;
+    font-weight: 900;
+    text-transform: uppercase;
+    z-index: 1;
+}
+.jsc-carousel__content-item h1 span{
+    color: var(--primary);
+}
+
+.jsc-carousel__content-item p{
+    z-index: 1;
+    color: white;
+    font-weight: 500;
+    font-size: 20px;
+}
+.jsc-carousel__btns{
+    position: absolute;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+.jsc-carousel__btns>.icon{
+    opacity: .7;
+    color: #fff;
+    font-size: 45px;
+    cursor: pointer;
+    justify-content: space-between;
+}
+.jsc-carousel__btns>.icon:hover{
+    opacity: 1;
+}
+.jsc-carousel__steps{
+    position: absolute;
+    bottom: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.jsc-carousel__steps-step{
+    height: 8px;
+    width: 25px;
+    margin: 0 5px;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, .7);
+    cursor: pointer;
+    transition: .75s all ease-in-out;
+}
+
+.jsc-carousel__steps-step:hover,
+.jsc-carousel__steps-step-active{
+    opacity: .7;
+    background: #fff;
+}
+.jsc-router_link{
+    width: 12%;
+    min-width: 150px;
+    z-index: 0;
+}

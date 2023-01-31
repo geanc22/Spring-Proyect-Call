@@ -1,0 +1,276 @@
+<div class="container text-center" *ngIf="product">
+  <h1>Compra online</h1>
+  <div class="row my-5">
+    <div class="col-lg-7 formulario-wrap">
+      <form [formGroup]="formVenta" (submit)="send()">
+        <div class="info_basica mb-3">
+          <p class="text-muted">Número</p>
+          <span class="text-muted">{{ infoPayment.telf }}</span>
+        </div>
+        <div class="info_basica mb-3">
+          <p class="text-muted">Correo electronico</p>
+          <span class="text-muted">{{ infoPayment.email }}</span>
+        </div>
+        <div class="info_basica mb-3">
+          <p class="text-muted fw-bold">Total a pagar</p>
+          <span class="fw-bold fs-4">{{
+            infoPayment.price | currency : "S/"
+          }}</span>
+        </div>
+        <div class="mb-3">
+          <label for="client_name" class="form-label fw-light"
+            >Nombre:</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="client_name"
+            formControlName="client_name"
+            [ngClass]="{
+              'is-invalid':
+                formVenta.get('client_name')!.touched &&
+                formVenta.get('client_name')!.errors
+            }"
+          />
+          <div
+            *ngIf="formVenta.get('client_name')!.errors?.['required']"
+            class="invalid-feedback"
+          >
+            Campo es requerido
+          </div>
+          <div
+            *ngIf="formVenta.get('client_name')!.errors?.['minlength']"
+            class="invalid-feedback"
+          >
+            Debe tener minimo
+            {{formVenta.get('client_name')!.errors?.['minlength']?.['requiredLength']}}
+            carácteres
+          </div>
+          <div
+            *ngIf="formVenta.get('client_name')!.errors?.['pattern'] && !formVenta.get('client_name')!.errors?.['minlength']"
+            class="invalid-feedback"
+          >
+            Formato no valido
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <div class="col-6">
+            <label for="client_apellido_paterno" class="form-label fw-light"
+              >Apellido Paterno:</label
+            >
+            <input
+              type="text"
+              class="form-control is-invalid"
+              id="client_apellido_paterno"
+              formControlName="client_apellido_paterno"
+              [ngClass]="{
+                'is-invalid':
+                  formVenta.get('client_apellido_paterno')!.touched &&
+                  formVenta.get('client_apellido_paterno')!.errors
+              }"
+            />
+            <div
+              *ngIf="formVenta.get('client_apellido_paterno')!.errors?.['required']"
+              class="invalid-feedback"
+            >
+              Campo es requerido
+            </div>
+            <div
+              *ngIf="formVenta.get('client_apellido_paterno')!.errors?.['minlength']"
+              class="invalid-feedback"
+            >
+              Debe tener minimo
+              {{formVenta.get('client_apellido_paterno')!.errors?.['minlength']?.['requiredLength']}}
+              carácteres
+            </div>
+            <div
+              *ngIf="formVenta.get('client_apellido_paterno')!.errors?.['pattern'] && !formVenta.get('client_apellido_paterno')!.errors?.['minlength']"
+              class="invalid-feedback"
+            >
+              Formato no valido
+            </div>
+          </div>
+          <div class="col-6">
+            <label for="client_apellido_materno" class="form-label fw-light"
+              >Apellido Materno:</label
+            >
+            <input
+              type="text"
+              class="form-control is-invalid"
+              id="client_apellido_materno"
+              formControlName="client_apellido_materno"
+              [ngClass]="{
+                'is-invalid':
+                  formVenta.get('client_apellido_materno')!.touched &&
+                  formVenta.get('client_apellido_materno')!.errors
+              }"
+            />
+            <div
+              *ngIf="formVenta.get('client_apellido_materno')!.errors?.['required']"
+              class="invalid-feedback"
+            >
+              Campo es requerido
+            </div>
+            <div
+              *ngIf="formVenta.get('client_apellido_materno')!.errors?.['minlength']"
+              class="invalid-feedback"
+            >
+              Debe tener minimo
+              {{formVenta.get('client_apellido_materno')!.errors?.['minlength']?.['requiredLength']}}
+              carácteres
+            </div>
+            <div
+              *ngIf="formVenta.get('client_apellido_materno')!.errors?.['pattern'] && !formVenta.get('client_apellido_materno')!.errors?.['minlength']"
+              class="invalid-feedback"
+            >
+              Formato no valido
+            </div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="card_number" class="form-label fw-light"
+            >Número de tarjeta</label
+          >
+          <input
+            type="number"
+            class="form-control is-invalid"
+            id="card_number"
+            formControlName="card_number"
+            [ngClass]="{
+              'is-invalid':
+                formVenta.get('card_number')!.dirty &&
+                formVenta.get('card_number')!.errors
+            }"
+          />
+          <div
+            *ngIf="formVenta.get('card_number')!.errors?.['required']"
+            class="invalid-feedback"
+          >
+            Campo es requerido
+          </div>
+          <div
+            *ngIf="formVenta.get('card_number')!.errors?.['pattern']"
+            class="invalid-feedback"
+          >
+            Por favor, ingrese una tarjeta visa correcta (51xx xxxx xxxx xxxx).
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label class="form-label fw-light">Informacion de la tarjeta:</label>
+          <div class="col-4">
+            <label class="form-label fw-light">mes:</label>
+            <select
+              class="form-select form-select is-invalid mb-3"
+              formControlName="card_exp_month"
+              [ngClass]="{
+                'is-invalid':
+                  formVenta.get('card_exp_month')!.touched &&
+                  formVenta.get('card_exp_month')!.errors
+              }"
+            >
+              <option *ngFor="let mes of meses" value="{{ mes.number }}">
+                {{ mes.number }}
+              </option>
+            </select>
+            <div
+              *ngIf="formVenta.get('card_exp_month')!.errors?.['required']"
+              class="invalid-feedback"
+            >
+              Campo es requerido
+            </div>
+          </div>
+          <div class="col-4">
+            <label class="form-label fw-light">año:</label>
+            <select
+              class="form-select form-select mb-3 is-invalid"
+              formControlName="card_exp_year"
+              [ngClass]="{
+                'is-invalid':
+                  formVenta.get('card_exp_year')!.touched &&
+                  formVenta.get('card_exp_year')!.errors
+              }"
+            >
+              <option *ngFor="let anio of anios" value="{{ anio }}">
+                {{ anio }}
+              </option>
+            </select>
+            <div
+              *ngIf="formVenta.get('card_exp_year')!.errors?.['required']"
+              class="invalid-feedback"
+            >
+              Campo es requerido
+            </div>
+          </div>
+          <div class="col-4">
+            <label for="card_cvv" class="form-label fw-light">CVV:</label>
+            <input
+              type="number"
+              class="form-control is-invalid"
+              id="card_cvv"
+              formControlName="card_cvv"
+              [ngClass]="{
+                'is-invalid':
+                  formVenta.get('card_cvv')!.dirty &&
+                  formVenta.get('card_cvv')!.errors
+              }"
+            />
+            <div
+              *ngIf="formVenta.get('card_cvv')!.errors?.['required']"
+              class="invalid-feedback"
+            >
+              Campo es requerido
+            </div>
+            <div
+              *ngIf="formVenta.get('card_cvv')!.errors?.['pattern']"
+              class="invalid-feedback"
+            >
+              CVV incorrecto
+            </div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="terms"
+              formControlName="terms"
+            />
+            <label class="form-check-label" for="terms">
+              Acepta los términos y condiciones
+              <span *ngIf="formVenta.get('terms')!.errors" style="color: red"
+                >*</span
+              >
+            </label>
+          </div>
+        </div>
+        <div class="border-top">
+          <div class="w-50 float-end my-3">
+            <app-boton-generico
+              label="Pagar"
+              [disabled]="formVenta.invalid"
+            ></app-boton-generico>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-lg-5 precios">
+      <h4 class="mb-3">Producto selecionado</h4>
+      <div *ngIf="infoPayment.type == 'recargas'">
+        <div class="card-recarga">
+          <h3>{{ product.price | currency : "S/" }}</h3>
+          <p>
+            <i class="icon fa-solid fa-mobile-screen-button"></i>
+          </p>
+          <span>Vigencia {{ product.validity }} días</span>
+        </div>
+      </div>
+      <div *ngIf="infoPayment.type == 'plan-internet'">
+        <app-card-planes [planInternet]="product"></app-card-planes>
+      </div>
+      <div *ngIf="infoPayment.type == 'apps-ilimitadas'">
+        <app-card-apps-ilimitadas [pack]="product"></app-card-apps-ilimitadas>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<div *ngIf="!recargas; else contenido">
+  <page-not-found [error]="error"></page-not-found>
+</div>
+<ng-template #contenido>
+  <div class="container">
+    <h1 class="text-center">Recarga virtual</h1>
+    <div class="d-flex my-5 gap-3 flex-wrap">
+      <div class="col formulario-wrap d-block">
+        <app-form-validation type="recargas" [precio]="precioSelected" [idProduct]="idProductSelected"></app-form-validation>
+      </div>
+      <div class="col precios">
+        <h3>Seleccione un monto</h3>
+        <app-radio-group-precio
+          [recargas]="recargas"
+          (recargaSelectedEvent)="precioSelected = $event"
+          (idProductEvent)="idProductSelected = $event"
+        ></app-radio-group-precio>
+      </div>
+    </div>
+  </div>
+</ng-template>

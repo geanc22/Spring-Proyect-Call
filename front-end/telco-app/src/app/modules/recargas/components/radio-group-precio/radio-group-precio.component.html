@@ -1,0 +1,6 @@
+<div class="recargas my-3">
+    <div *ngFor="let recarga of recargas">
+        <input type="radio" id="{{recarga.id}}" name="price" value="{{recarga.price}}" (click)="recargaSelected(recarga.price,recarga.id || 0)"/>
+        <label for="{{recarga.id}}">{{ recarga.price | currency : "S/" }} <span class="vigencia">Vigencia {{recarga.validity}} dias</span></label>
+    </div>
+</div>

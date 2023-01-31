@@ -1,0 +1,17 @@
+<div *ngIf="planInternet" class="jsc-card text-center">
+  <div class="jsc-card-price">
+    Precio:
+    <span>{{ planInternet.price | currency : "S/" }}</span>
+  </div>
+  <div class="jsc-card-title">
+    {{ planInternet.title | uppercase }} <span> {{planInternet.duration}} Días</span>
+    <p> {{planInternet.subtitle}} </p>
+  </div>
+  <div class="jsc-card-description border-bottom" *ngFor="let description of planInternet.infoExtras">
+    <span>{{description?.property}}</span>
+    <span class="value">{{description?.value}}</span>
+  </div>
+  <div class="jsc-card-footer">
+    <app-boton-generico *ngIf="boton" (click)="openModal()" label="Comprar" (click)="emitirDatos(planInternet.price,planInternet.id || 0)"></app-boton-generico>
+  </div>
+</div>

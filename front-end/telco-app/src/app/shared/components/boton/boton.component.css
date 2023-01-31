@@ -1,0 +1,16 @@
+.jsc-btn__link {
+  background-color: var(--primary);
+  height: 2.8rem;
+  color: #fff;
+  font-weight: 500;
+  border-radius: 50px;
+  width: 100%;
+  border: none;
+  text-transform: uppercase;
+}
+.jsc-btn__link:hover {
+  background-color: var(--primary_hover);
+}
+.jsc-btn__link:disabled{
+  background-color: rgba(33, 151, 255, 0.645);
+}

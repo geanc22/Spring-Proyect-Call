@@ -1,0 +1,9 @@
+.precios,
+.formulario-wrap {
+  box-shadow: 0 0 5px #ccc;
+  padding: 15px;
+  min-width: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

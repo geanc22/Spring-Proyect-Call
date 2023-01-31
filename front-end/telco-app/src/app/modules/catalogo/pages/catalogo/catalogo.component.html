@@ -1,0 +1,12 @@
+<div class="container-fluid">
+    <app-carousel [height]="550" [items]="itemCarousel"></app-carousel>
+</div>
+
+<div class="container mt-4">
+    <div class="mb-5">
+        <h2>Catalogo de productos</h2>
+    </div>
+    <div class="cards-productos">
+        <app-card-producto *ngFor="let category of categories.links" [category]="category"></app-card-producto>
+    </div>
+</div>

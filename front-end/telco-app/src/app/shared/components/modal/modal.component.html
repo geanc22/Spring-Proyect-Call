@@ -1,0 +1,18 @@
+<div class="jsc-modal">
+  <div class="jsc-modal__content">
+    <div class="jsc-modal-close">
+      <button (click)="closeModal()" class="jsc-modal_btn">
+        <i class="icon fas fa-close"></i>
+      </button>
+    </div>
+    <div class="jsc-modal__body">
+      <app-form-validation [type]="type" [idProduct]="idProduct"
+        *ngIf="!precio; else otherForm"
+      ></app-form-validation>
+
+      <ng-template #otherForm>
+        <app-form-validation [type]="type" [precio]="precio" [idProduct]="idProduct"></app-form-validation>
+      </ng-template>
+    </div>
+  </div>
+</div>
